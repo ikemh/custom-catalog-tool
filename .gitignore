@@ -1,0 +1,29 @@
+# Compilados e builds
+*.exe
+*.dll
+*.so
+*.pyd
+*.pyc
+__pycache__/
+*.build/
+*.dist/
+build/
+dist/
+*.spec
+
+# Logs e crash reports
+*.log
+*.xml
+
+# Dados sensíveis
+Planilha_Catalogo_2025.ods
+compandos compilador.txt
+
+# Arquivos grandes ou irrelevantes
+arvore_projeto.txt
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo

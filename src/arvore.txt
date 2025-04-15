@@ -1,0 +1,30 @@
+Folder PATH listing
+Volume serial number is 14AC-D513
+C:.
+¦   arvore.txt
+¦   catalogo.py
+¦   catalog_groups.py
+¦   gui_components.py
+¦   gui_logic.py
+¦   logo.png
+¦   main.py
+¦   pdf_reorganizer.py
+¦   pdf_utils.py
+¦   utils.py
+¦   __init__.py
+¦   
++---temp_pdf_images
++---__pycache__
+        catalogo.cpython-310.pyc
+        catalogo.cpython-313.pyc
+        catalog_groups.cpython-310.pyc
+        catalog_groups.cpython-313.pyc
+        gui_components.cpython-310.pyc
+        gui_components.cpython-313.pyc
+        gui_logic.cpython-310.pyc
+        gui_logic.cpython-313.pyc
+        pdf_reorganizer.cpython-310.pyc
+        pdf_utils.cpython-310.pyc
+        pdf_utils.cpython-313.pyc
+        utils.cpython-313.pyc
+        
