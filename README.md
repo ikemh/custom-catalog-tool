@@ -64,18 +64,63 @@ pip install -r requirements.txt
 ```
 
 3. Execute a aplicação principal:
+## Geração de Executáveis
+
+O projeto pode ser empacotado de duas formas distintas, a depender do objetivo de distribuição:
+
+### PyInstaller (empacotamento prático)
+
+#### `main.py`
+
 ```bash
-python main.py
+pyinstaller --clean --windowed --icon=icone.ico --paths=src ^
+  --add-data "src\\logo.png;." --distpath dist src\\main.py
 ```
 
-### Geração de Executável
+Gera um executável leve em dist\
+Oculta o console (--windowed)
+Inclui o ícone e o arquivo logo.png
+Utiliza a pasta src como base para localizar os módulos auxiliares
 
-Para empacotar a aplicação com PyInstaller:
-```bash
-pyinstaller --onefile --noconsole main.py
+#### pdf_reorganizer.py
+```
+pyinstaller --windowed --icon=icone.ico --paths=src ^
+  --distpath dist\\main --name pdf_reorganizer src\\pdf_reorganizer.py
 ```
 
-O executável será gerado no diretório `dist/`.
+Gera o utilitário auxiliar pdf_reorganizer.exe
+Organizado dentro do diretório dist\main\
+
+
+### Nuitka (compilação otimizada e proteção de código)
+
+#### main.py
+
+```
+nuitka --standalone --msvc=latest --windows-console-mode=disable ^
+  --windows-icon-from-ico=icone.ico ^
+  --include-data-file=src/logo.png=logo.png ^
+  --enable-plugin=tk-inter --verbose src/main.py
+```
+
+Compila o código Python em C para otimização de performance
+Ideal para distribuições finais com maior proteção contra engenharia reversa
+Produz uma pasta standalone com todas as dependências incluídas
+
+Requisitos:
+
+Nuitka instalado (pip install nuitka)
+
+Visual Studio Build Tools com MSVC habilitado
+
+tkinter instalado e funcional no ambiente Python
+
+Estrutura de saída esperada
+dist\main.exe (via PyInstaller)
+
+dist\main\pdf_reorganizer.exe (via PyInstaller)
+
+main.build\ ou main.dist\ (se gerado via Nuitka)
 
 ## Segurança e Política de Uso
 
